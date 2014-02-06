@@ -3,4 +3,5 @@ pom.xml
 /lib/
 /classes/
 /targets/
+/mongodb-osx-*/
 .lein-deps-sum
