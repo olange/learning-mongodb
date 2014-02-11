@@ -1,28 +1,33 @@
-= MongoDB Course M101P · MongoDB for Developers
+# MongoDB University Course M101P
 
-Courseware of MongoDB University's Course [M101P: MongoDB for Developers](https://education.mongodb.com/courses/10gen/M101P/2014_February/info)
+Courseware, homework and resources related to the course [M101P: MongoDB for Developers](https://education.mongodb.com/courses/10gen/M101P/2014_February/info)
 
-== Running
+## Running
 
 Start MongoDB:
 
+    $ cd course-m101p
     $ mongod --dbpath=data/db/ &
 
 Activate the Python Virtual Environment:
 
     $ source venv/bin/activate
 
-Starting the Mongo shell
+Start the Mongo shell
 
     $ mongo
 
-Deactivating the Python Virtual Environment:
+To deactivate the Python Virtual Environment:
 
-    $ venv/bin/deactivate
+    $ deactivate
 
-== Installing
+## Installing
 
-=== Generic Python Install for Mac OS X
+### Generic Python Install for Mac OS X
+
+XCode Command Line Tools:
+
+    $ xcode-select --install
 
 Mongo:
 
@@ -37,7 +42,7 @@ Python Virtual Env:
     $ sudo pip install virtualenv
     $ virtualenv --distribute venv
 
-=== Course specific installs
+### Course specific installs
 
 PyMongo and Bottle packages:
 
