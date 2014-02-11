@@ -1,7 +1,1 @@
-pom.xml
-*jar
-/lib/
-/classes/
-/targets/
-/mongodb-osx-*/
-.lein-deps-sum
+*.sublime-*
