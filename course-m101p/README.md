@@ -1,6 +1,11 @@
 # MongoDB University Course M101P
 
-Courseware, homework and resources related to the course [M101P: MongoDB for Developers](https://education.mongodb.com/courses/10gen/M101P/2014_February/info)
+Courseware, homework and resources related to the course [M101P: MongoDB for Developers](https://education.mongodb.com/courses/10gen/M101P/2014_February/info).
+
+## Useful links
+
+ * [Course info](https://education.mongodb.com/courses/10gen/M101P/2014_February/info) overview and news
+ * [Course wiki](https://education.mongodb.com/courses/10gen/M101P/2014_February/wiki/M101P-Feb-2014/) links to all videos on YouTube
 
 ## Running
 
@@ -23,7 +28,7 @@ To deactivate the Python Virtual Environment:
 
 ## Installing
 
-### Generic Python Install for Mac OS X
+### Generic Python install for Mac OS X
 
 XCode Command Line Tools:
 
@@ -44,7 +49,7 @@ Python Virtual Env:
 
 ### Course specific installs
 
-PyMongo and Bottle packages:
+PyMongo and Bottle modules for Python:
 
     $ cd course-m101p
     $ source venv/bin/activate
