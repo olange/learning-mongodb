@@ -6,6 +6,7 @@ Courseware, homework and resources related to the course [M101P: MongoDB for Dev
 
  * [Course info](https://education.mongodb.com/courses/10gen/M101P/2014_February/info) overview and news
  * [Course wiki](https://education.mongodb.com/courses/10gen/M101P/2014_February/wiki/M101P-Feb-2014/) links to all videos on YouTube
+ * [Course forum](https://education.10gen.com/courses/10gen/M101P/2014_February/discussion/forum) discussions about the course
 
 ## Running
 
