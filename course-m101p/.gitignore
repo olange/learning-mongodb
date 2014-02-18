@@ -2,3 +2,4 @@ data
 dump
 venv
 *.pyc
+activate
