@@ -9,7 +9,7 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 * 1. **sort** 2. **skip** 3. **limit**; sort order is _lexicographic_, according to the binary UTF-8 encoding of strings
 * Recap on JS properties and dictionary lookup
 * Data is stored in [BSON](http://bsonspec.org) format in MongoDB, which is a superset of JSON, having namely _ObjectId_, _date_, _integer 32/64_ and _binary_ types
-* MongoDB Shell command-line editing hints; the _shell_ has support for the various MongoDB types: `Date()` (gets converted to `ISODate()` automatically), `NumberInt()`, `NumberLong()` for instance
+* MongoDB Shell command-line editing tips, namely history and autocomplete; the _shell_ has support for the various MongoDB types: `Date()` (gets converted to `ISODate()` automatically), `NumberInt()`, `NumberLong()` for instance
 * ObjectId is a UUID; each doc must have a PK, which is immutable in the DB
 
 ### Inserting
@@ -34,6 +34,26 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 
 ### Counting
 * Counting results of a query: use `db.coll.count( …)` with a query I would give to `db.coll.find( …)`
+
+### Updating
+
+In the Mongo Shell, the API for `update()` does 4 different things:
+
+1. **Wholesale updating** – a bit dangerous, completely replaces the documents content: `db.people.update( { name: "Smith"}, { name: "Thompson", salary: 50000})`will replace all documents matching the primary keys returned by the first query, discard their content and replace it with the second document – keeping only the primary key value
+
+2. **Manipulating individual fields** with `$set`: `db.people.update( { name: "Alice"}, { $set: { age: 30}})` will define the field `age` if it doesn't exist, or modify its value if it exists.
+
+   Similary, `$inc` allows to modify a value, or define it if it doesn't exist, with the value of the increment step: `db.people.update( { name: "Alice"}, { $inc: { age: 1 }})`; these operations are efficient in MongoDB.
+
+   Manipulating arrays in documents with `$push`, `$pop`, `$pull`, `$pushAll`, `$pullAll` and `addToSet`; note that `pop` removes one or more elements from the end of the array (or beginning if the given element count is negative), while `pull` removes the actual given values; `addToSet` considers the array as a set, rather than an ordered list: it will push a value if it doesn't exist, otherwise do nothing.
+
+   Removing a field and its value with `$unset`: `db.people.find({ name: "Jones"}, { $unset: { profession: 1}})` (some value must be specified, 1 in this example, but it is ignored); `$unset` may be used to change the schema: `db.users.update( {}, { $unset: { interests: 1}}, { multi: true})` (see multi-update below for the `multi` extra argument)
+
+3. **Upserting** with the `.update( …, …, { upsert: true})` third optional argument: update a record that does exist, otherwise insert a new document; frequent use case when merging data from a data vendor: `db.users.update( { name: "George"}, { $set: { interests: [ "cat", "dog"]}}, { upsert: true})` will create a document { name: "George", interests: [ "cat", "dog"]} if it doesn't already exist, otherwise update the existing document.
+
+4. Updating **multiple documents** in a collection: default behavior of MongoDB is to update just one document in the collection; add the `{multi:true}` extra argument to update all matching documents: `db.scores.update( { score: {$lt: 70}}, {$inc: { score: 20}}, { multi:true}))` will give every document with a score less than 70 an extra 20 points; `{multi:true}` is for Javascript – some drivers have a separate method for multi-updates.
+
+   These multi-updates are atomically executed for each document; however, from the concurrency point of view, the server does not offer isolation: these updates are a sequential collection of updates, executed in a single thread, that might however be _yielded_ (paused) by the server allow for other write and read operations.
 
 ## Homework
 
