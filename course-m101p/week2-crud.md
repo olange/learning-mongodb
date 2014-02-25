@@ -1,6 +1,6 @@
 # M101P · Week 2 · CRUD
 
-Reading notes and homework related to course [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/) .
+Reading notes and homework related to course [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/). Week 2 was about 6 hours study (4h), homework (45 min.) and notes (1h).
 
 ## Recap
 
