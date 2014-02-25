@@ -2,6 +2,11 @@
 
 [Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/52939a93e2d423246e7c43f7/)
 
+## Pièces jointes
+
+* [hw2-3-userDAO.py](hw2-3-userDAO.py) script modifié
+* [hw2-3.4a405a23b442.zip](hw2-3.4a405a23b442.zip) application blog fournie par MongoDB
+
 ## Problème
 
 We have removed two pymongo statements from `userDAO.py` and marked the area where you need to work with XXX. You should not need to touch any other code. The pymongo statements that you are going to add will add a new user upon sign-up and validate a login by retrieving the right user document.
