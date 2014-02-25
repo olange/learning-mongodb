@@ -5,6 +5,7 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 ## Recap
 
 ### CRUD, Mongo Shell and BSON types
+
 * CRUD is IFUR: `insert()`, `find()`, `update()`, `remove()`
 * 1. **sort** 2. **skip** 3. **limit**; sort order is _lexicographic_, according to the binary UTF-8 encoding of strings
 * Recap on JS properties and dictionary lookup
@@ -13,9 +14,11 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 * ObjectId is a UUID; each doc must have a PK, which is immutable in the DB
 
 ### Inserting
+
 * Inserting: `db.fruits.insert({ name: "apple", color: "red", shape: "round"})`
 
 ### Querying
+
 * `.find(…).pretty()` displays results in a more human readable form
 * Finding: `find()`, `findOne()`, excluding fields from output, specifying query by example; for instance: `db.scores.find({ type: "essay", score: 50}, { student: true, _id: false})`
 * All search ops are strongly typed and dynamically typed; when using polymorphic field contents, beware! such searches can be refined with `$type` (for instance, `.find( { name: { $type: 2 } })` with _type_ according to [BSON spec](http://bsonspec.org/#/specification) of element types; type 2 being a string) and `$exists`(for instance, `.find( { profession: { $exists: true | false }})`)
@@ -33,6 +36,7 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 * Query modifiers are executed in the server (not the client) in following order: 1. sort 2. skip 3. limit; `db.scores.find( { type: "exam"}).sort( { score: -1}).skip( 50).limit( 20)` retrieves exam documents, sorted by score in descending order, skipping the first 50 and showing only the next 20.
 
 ### Counting
+
 * Counting results of a query: use `db.coll.count( …)` with a query I would give to `db.coll.find( …)`
 
 ### Updating
@@ -54,6 +58,19 @@ In the Mongo Shell, the API for `update()` does 4 different things:
 4. Updating **multiple documents** in a collection: default behavior of MongoDB is to update just one document in the collection; add the `{multi:true}` extra argument to update all matching documents: `db.scores.update( { score: {$lt: 70}}, {$inc: { score: 20}}, { multi:true}))` will give every document with a score less than 70 an extra 20 points; `{multi:true}` is for Javascript – some drivers have a separate method for multi-updates.
 
    These multi-updates are atomically executed for each document; however, from the concurrency point of view, the server does not offer isolation: these updates are a sequential collection of updates, executed in a single thread, that might however be _yielded_ (paused) by the server allow for other write and read operations.
+
+### Removing
+
+* Removing documents matching a query: use `db.coll.remove( …)` with a query I would give to `db.coll.find( …)`
+* With no arguments `db.coll.remove()`, all documents are removed from the collection, one by one (keeping the indexes)
+* It is more efficient to use `db.coll.drop()`, which removes the contents and the metadata (namely indexes)
+* Remember: `remove()` operations are not atomically isolated in a transaction; a concurrent read or write might see the state of the collection halfway thru the removal; the `remove` itself is however atomic. 
+
+### Handling errors
+
+* To check the status of the last operation: `db.runCommand( { getLastError: 1})` allows to determine if an operation did succeed or fail
+* On successful operations, it can be used to determine how much documents where updated with a multi-update
+* On erroneous operations, it allow to discover what didn't work:
 
 ## Homework
 
