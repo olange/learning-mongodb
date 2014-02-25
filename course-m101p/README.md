@@ -2,14 +2,18 @@
 
 Courseware, homework and resources related to the course [M101P: MongoDB for Developers](https://education.mongodb.com/courses/10gen/M101P/2014_February/info).
 
+## Notes and homework
+
+* [M101P: MongoDB for Developers · Week 2: CRUD](week2-crud.md)
+* [M101P: MongoDB for Developers · Week 1: Introduction](week1-introduction.md)
+
 ## Courseware
+
+Access to thse links requires an account and login to MongoDB Courses.
 
 * [Course info](https://education.mongodb.com/courses/10gen/M101P/2014_February/info) overview and news
 * [Course wiki](https://education.mongodb.com/courses/10gen/M101P/2014_February/wiki/M101P-Feb-2014/) links to all videos on YouTube
 * [Course forum](https://education.10gen.com/courses/10gen/M101P/2014_February/discussion/forum) 
-* Courses: [Week 1: Introduction](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_1_Introduction/), [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/) 
-
-Access to the previous links requires an account and login to MongoDB Courses.
 
 ## Running
 
