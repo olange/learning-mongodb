@@ -2,6 +2,10 @@
 
 [Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/52939732e2d423246e7c43e9/)
 
+## Pièces jointes
+
+* [hw2-2-remove.py](hw2-2-remove.py)
+
 ## Problème
 
 Write a program in the language of your choice that will remove the grade of type "homework" with the lowest score for each student from the dataset that you imported in HW 2.1. Since each document is one grade, it should remove one document per student.
@@ -10,7 +14,7 @@ Provide the identity of the student with the highest average in the class, using
 
 ## Résolution
 
-Suppression des documents (voir hw2-2-remove.py):
+Suppression des documents (voir [hw2-2-remove.py](hw2-2-remove.py)):
 
     (venv) course-m101p $ python hw2-2-remove.py 
     Removing {u'student_id': 0, u'_id': ObjectId('50906d7fa3c412bb040eb57a'), u'type': u'homework', u'score': 63.98402553675503}
