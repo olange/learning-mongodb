@@ -4,11 +4,12 @@ Courseware, homework and resources related to the course [M101P: MongoDB for Dev
 
 ## Courseware
 
- * [Course info](https://education.mongodb.com/courses/10gen/M101P/2014_February/info) overview and news
- * [Course wiki](https://education.mongodb.com/courses/10gen/M101P/2014_February/wiki/M101P-Feb-2014/) links to all videos on YouTube
- * [Course forum](https://education.10gen.com/courses/10gen/M101P/2014_February/discussion/forum) discussions about the course
- * [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/)
- * [Week 1: Introduction](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_1_Introduction/)
+* [Course info](https://education.mongodb.com/courses/10gen/M101P/2014_February/info) overview and news
+* [Course wiki](https://education.mongodb.com/courses/10gen/M101P/2014_February/wiki/M101P-Feb-2014/) links to all videos on YouTube
+* [Course forum](https://education.10gen.com/courses/10gen/M101P/2014_February/discussion/forum) 
+* Courses: [Week 1: Introduction](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_1_Introduction/), [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/) 
+
+Access to the previous links requires an account and login to MongoDB Courses.
 
 ## Running
 
@@ -65,3 +66,10 @@ Restoring the database:
     $ wget https://education.mongodb.com/static/10gen_2014_M101P_February/handouts/hw1-1.184820ec29b6.zip
     $ unzip hw1-1.184820ec29b6.zip
     $ restoremongo dump
+
+Importing content of a database:
+
+    $ mongoimport -d students -c grades < grades.ef42a2b3e7ff.js 
+    connected to: 127.0.0.1
+    Tue Feb 18 15:44:34.158 check 9 800
+    Tue Feb 18 15:44:34.158 imported 800 objects
