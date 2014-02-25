@@ -11,8 +11,9 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 * ObjectId is a UUID; each doc must have a PK, which is immutable in the DB
 * Inserting
 * Finding: `find()`, `findOne()`, excluding fields from output, specifying query by example
-* All search ops are strongly typed and dynamically typed; when using polymorphic field contents, beware! such searches can be refined with `$type` () and `$exists`()
+* All search ops are strongly typed and dynamically typed; when using polymorphic field contents, beware! such searches can be refined with `$type` (for instance, `.find( { name: { $type: 2 } })` with _type_ according to [BSON spec](http://bsonspec.org/#/specification) of element types; type 2 being a string) and `$exists`(for instance, `.find( { profession: { $exists: true | false }})`)
 * Querying for string patterns with regular expressions
+* 1. **sort** 2. **skip** 3. **limit**
 
 ## Homework
 
