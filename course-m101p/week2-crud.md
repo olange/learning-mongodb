@@ -11,9 +11,11 @@ Reading notes and homework related to course [Week 2: CRUD](https://education.mo
 * ObjectId is a UUID; each doc must have a PK, which is immutable in the DB
 * Inserting
 * Finding: `find()`, `findOne()`, excluding fields from output, specifying query by example
-* All search ops are strongly typed and dynamically typed; when using polymorphic field contents, beware! such searches can be refined with `$type` () and `$exists`
+* All search ops are strongly typed and dynamically typed; when using polymorphic field contents, beware! such searches can be refined with `$type` () and `$exists`()
 * Querying for string patterns with regular expressions
 
 ## Homework
 
-* (à compléter)
+* [Homework 2.1](hw2-1-answer.md) Find all exam scores greater than or equal to 65, and sort those scores from lowest to highest  `db.grades.find( { "score": { $gte: 65}}).sort( { "score": 1})`
+* [Homework 2.2](hw2-2-answer.md) Identity of the student with the highest average in the class
+* [Homework 2.3](hw2-3-answer.md) Adapt `userDAO.py` to add a new user upon sign-up and validate a login by retrieving the right user document.
