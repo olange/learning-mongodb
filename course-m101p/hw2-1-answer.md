@@ -2,6 +2,10 @@
 
 [Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/529396dee2d423246e7c43e6/)
 
+## Pièces jointes
+
+* [hw2-1-grades.ef42a2b3e7ff.js](hw2-1-grades.ef42a2b3e7ff.js) fichier JSON avec données
+
 ## Problème
 
 Now it’s your turn to analyze the data set. Find all exam scores greater than or equal to 65, and sort those scores from lowest to highest. What is the student_id of the lowest exam score above 65: 115, 22, 48, 67, 87 or 114?
