@@ -1,16 +1,18 @@
 # Homework 3.1
 
-[Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_3_Schema_Design/529dffcae2d42347509fb3a2/)
+Remove the lowest homework score for each student [Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_3_Schema_Design/529dffcae2d42347509fb3a2/)
+
+## Pièces jointes
+
+* [hw3-1-remove.py](hw3-1-remove.py) script réalisé
 
 ## Problème
 
-Write a program in the language of your choice that will remove the lowest homework score for each student. Since there is a single document for each student containing an array of scores, you will need to update the scores array and remove the homework.
-
-Provide the identify of the student with the highest average in the class, using given query.
+Write a program in the language of your choice that will remove the lowest homework score for each student. Since there is a single document for each student containing an array of scores, you will need to update the scores array and remove the homework. Provide the identify of the student with the highest average in the class, using given query.
 
 ## Résolution
 
-Suppression des scores (voir hw3-1-remove.py):
+Suppression des scores (voir [hw3-1-remove.py](hw3-1-remove.py)):
 
     (venv) course-m101p $ python hw3-1-remove.py 
     ...

@@ -45,4 +45,4 @@ Ajouter un nouveau commentaire à un post:
 
 ## Préparation
 
-Cf. réponse [HW 3.2](hw3-2-answer.md).
+Cf. «Préparation» dans réponse [HW 3.2](hw3-2-answer.md#préparation).
