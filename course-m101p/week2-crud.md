@@ -1,6 +1,12 @@
 # M101P · Week 2 · CRUD
 
-Reading notes and homework related to course [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/). Week 2 was about 5 hours study and 45 min. homework.
+Reading notes and homework related to [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/). A hearty part of the course, about 5 hours study and 45 min. homework.
+
+## Homework
+
+* [Homework 2.1](hw2-1-answer.md) Find all exam scores greater than or equal to 65, and sort those scores from lowest to highest  `db.grades.find( { "score": { $gte: 65}}).sort( { "score": 1})`
+* [Homework 2.2](hw2-2-answer.md) Identity of the student with the highest average in the class
+* [Homework 2.3](hw2-3-answer.md) Adapt `userDAO.py` to add a new user upon sign-up and validate a login by retrieving the right user document.
 
 ## Recap
 
@@ -76,9 +82,3 @@ In the Mongo Shell, the API for `update()` does 4 different things:
 * To check the status of the last operation: `db.runCommand( { getLastError: 1})` allows to determine if an operation did succeed or fail
 * On successful operations, it can be used to determine how much documents where updated with a multi-update
 * On erroneous operations, it allow to discover what didn't work:
-
-## Homework
-
-* [Homework 2.1](hw2-1-answer.md) Find all exam scores greater than or equal to 65, and sort those scores from lowest to highest  `db.grades.find( { "score": { $gte: 65}}).sort( { "score": 1})`
-* [Homework 2.2](hw2-2-answer.md) Identity of the student with the highest average in the class
-* [Homework 2.3](hw2-3-answer.md) Adapt `userDAO.py` to add a new user upon sign-up and validate a login by retrieving the right user document.
