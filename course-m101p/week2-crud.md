@@ -82,3 +82,15 @@ In the Mongo Shell, the API for `update()` does 4 different things:
 * To check the status of the last operation: `db.runCommand( { getLastError: 1})` allows to determine if an operation did succeed or fail
 * On successful operations, it can be used to determine how much documents where updated with a multi-update
 * On erroneous operations, it allow to discover what didn't work:
+
+### PyMongo
+
+* Using `find_and_modify` to produce a sequence number:
+
+  ```python
+  def get_next_seq_value( seq_name):
+      counter = counters.find_and_modify( query = { "name": seq_name},
+                                          update = { "$inc": { "value": 1}},
+                                          upsert = True, new = True)
+      return counter[ "value"]
+  ```
