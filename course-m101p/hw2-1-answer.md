@@ -1,10 +1,10 @@
 # Homework 2.1
 
-[Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/529396dee2d423246e7c43e6/)
+Analyzing a data set [Description complète](https://education.10gen.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/529396dee2d423246e7c43e6/)
 
 ## Pièces jointes
 
-* [hw2-1-grades.ef42a2b3e7ff.js](hw2-1-grades.ef42a2b3e7ff.js) fichier JSON avec données
+* [hw2-1-grades.ef42a2b3e7ff.json](hw2-1-grades.ef42a2b3e7ff.json) fichier JSON avec données
 
 ## Problème
 
