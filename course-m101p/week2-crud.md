@@ -1,6 +1,6 @@
 # M101P · Week 2 · CRUD
 
-Reading notes and homework related to course [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/). Week 2 was about 6 hours study (4h), homework (45 min.) and notes (1h).
+Reading notes and homework related to course [Week 2: CRUD](https://education.mongodb.com/courses/10gen/M101P/2014_February/courseware/Week_2_CRUD/). Week 2 was about 5 hours study and 45 min. homework.
 
 ## Recap
 
@@ -50,6 +50,11 @@ In the Mongo Shell, the API for `update()` does 4 different things:
    Similary, `$inc` allows to modify a value, or define it if it doesn't exist, with the value of the increment step: `db.people.update( { name: "Alice"}, { $inc: { age: 1 }})`; these operations are efficient in MongoDB.
 
    Manipulating arrays in documents with `$push`, `$pop`, `$pull`, `$pushAll`, `$pullAll` and `addToSet`; note that `pop` removes one or more elements from the end of the array (or beginning if the given element count is negative), while `pull` removes the actual given values; `addToSet` considers the array as a set, rather than an ordered list: it will push a value if it doesn't exist, otherwise do nothing.
+   
+   For instance: `db.friends.update( { _id: "Mike" }, { $push: { interests : "skydiving" }})` will add "skydiving" to the right hand side of the array; 
+`db.friends.update( { _id: "Mike" }, { $pop: { interests : -1 }})` will pop the leftmost element of the array; 
+`db.friends.update( { _id: "Mike" }, { $addToSet: { interests : "skydiving" }})` would add "skydiving" to the array if it was not already there, otherwise would do nothing;
+`db.friends.update( { _id: "Mike" }, { $pushAll: { interests: [ "skydiving" , "skiing" ]}})` appends to the right hand side of the array, leaving us with possible duplicate values.
 
    Removing a field and its value with `$unset`: `db.people.find({ name: "Jones"}, { $unset: { profession: 1}})` (some value must be specified, 1 in this example, but it is ignored); `$unset` may be used to change the schema: `db.users.update( {}, { $unset: { interests: 1}}, { multi: true})` (see multi-update below for the `multi` extra argument)
 
