@@ -85,6 +85,19 @@ In the Mongo Shell, the API for `update()` does 4 different things:
 
 ### PyMongo
 
+* Selecting fields with `find( query, selector)`, `query = { "type": "exam"}`, `selector = {"student_id": 1, "_id": 0}`
+* Reading contents from an URL with `parsed_feed = json.loads( feed.read())` and `feed = urllib2.urlopen("http://…/feed.json")` (requires `import json` and `import urllib2`)
+* Using regular expressions with `find( query, …)` and `query = { "title": { "$regex": "Microsoft" }}`
+* Using Dot notation with `find( query, selector)`, `query = { "media.oembed.type": "video"}`, `selector = { "media.oembed.url": 1, "_id": 0}` (will find all documents that have these subdocuments `media` and `oembed`, with field `type` having value `video`; very flexible indeed)
+* When projecting onto a key that doesn't exist in the matching documents, MongoDB will return an empty document
+* Sort, skip and limit with `.sort("student_id": pymongo.ASCENDING).skip(4).limit(1)`
+* Sorting on multiple keys with tuples in an ordered array: `.sort( [ ( "student_id": pymongo.ASCENDING), ( "score": pymongo.DESCENDING)])`, because Python does not retain the key order within its dictionaries (whereas in the Mongo shell it would be `.sort( { student_id: 1, score: -1})`, because Javascript does retain the order of keys within dictionaries)
+* Inserting with `.insert( doc)`
+* Updating with `.save( doc)` (_insert/update combo_), which inserts the document if there is no `_id` field, otherwise updates the whole document
+* _Wholesale update_ can also be done with `.update( query, doc)` (where the document can contain an `_id`, as long as it is equal to the one in the matching document
+* _Selective update_ with `.update( { "student_id": 1, "type": "homework"}, { "$set": { "review_date": datetime.datetime.utcnow()}})` (`$set`, `$unset`, …, see _manipulating individual fields_ above)
+* Getting current time compatible with `ISODate()`: `datetime.datetime.utcnow()`
+* Upserting (insert/update combo) with `things.update({ "thing": "apple"}, { "$set": { "color": "green"}}, upsert = True)` and `things.update({ "thing": "pear"}, { "color": "green" }, upsert = True)`; beware: the second form will insert a new document with just the field `{ "color": "green" }` (as given, but one might want to have the `"thing": "pear"` field), where as with `$set`, the query is part of what's inserted, so a document `{ "thing": "apple", "color": "green" }` would be inserted, if it didn't exist
 * Using `find_and_modify` to produce a sequence number:
 
   ```python
@@ -94,3 +107,5 @@ In the Mongo Shell, the API for `update()` does 4 different things:
                                           upsert = True, new = True)
       return counter[ "value"]
   ```
+  
+  [`db.coll.findAndModify()`](http://docs.mongodb.org/manual/reference/method/db.collection.findAndModify/) atomically modifies and returns a single document; by default, the returned document does not include the modifications made on the update; to return the document with the modifications made on the update, use the `new: true` option.
