@@ -38,3 +38,9 @@ Reading notes and homework related to [Week 3: Schema Design](https://education.
 * In Many:Many, link documents to avoid modification anomalies thru arrays of object ids.
 
 If you're duplicating data, it's up to you, the application programmer, to keep the data up to date.
+
+### Handling large files (BLOBs)
+
+* GRIDFS -- stores large files (>16MB) in chunks and metadata in a separate collection
+* Storing a file: `grid = gridfs.Gridfs( db, "videos"); f = open( "video.mp4", "r"); _id = grid.put( f); f.close(); db.videos_meta.insert({ "grid_id": _id, "filename": "video.mp4"})`
+* Retrieving: `db.videos.files.find({"_id": _id})`; the data itself is in `db.videos.chunks`
