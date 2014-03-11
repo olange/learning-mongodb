@@ -4,6 +4,7 @@ Courseware, homework and resources related to the course [M101P: MongoDB for Dev
 
 ## Notes and homework
 
+* [Week 4: Performance](week4-performance.md)
 * [Week 3: Schema Design](week3-schema.md)
 * [Week 2: CRUD](week2-crud.md)
 * [Week 1: Introduction](week1-introduction.md)
