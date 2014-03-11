@@ -1,7 +1,8 @@
 data
 dump
 venv
+activate
 hw2-3
 hw3-2and3-3
+hw4-3
 *.pyc
-activate
