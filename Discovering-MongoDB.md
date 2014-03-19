@@ -13,6 +13,8 @@
 ### Channels
 
 * [Geneva MongoDB User Group](http://genevamug.ch)
+* [MongoDB User Google Group](https://groups.google.com/forum/#!forum/mongodb-user)
+* Twitter: [#MongoDBBasics](https://twitter.com/search?q=%23MongoDBBasics) [@MongoDB](https://twitter.com/MongoDB)
 
 ### Articles
 
