@@ -18,6 +18,7 @@
 
 ### Articles
 
+* [MongoDB schema design pitfalls](https://blog.serverdensity.com/mongodb-schema-design-pitfalls/)
 * [Analyze Performance of Database Operations](http://docs.mongodb.org/manual/tutorial/manage-the-database-profiler/) enable with `db.setProfilingLevel(2)` and query with `db.system.profile.find( { millis : { $gt : 5 } } ).pretty()` for instance; `show profile` displays the five most recent events that took more than 1ms
 * [Measuring time and analyzing a query: explain()](http://docs.mongodb.org/manual/reference/method/cursor.explain/) `db.collection.find().explain().millis` gives the time taken by a given query
 * [Ways to implement data versioning in MongoDB](http://stackoverflow.com/questions/4185105/ways-to-implement-data-versioning-in-mongodb) StackOverflow
