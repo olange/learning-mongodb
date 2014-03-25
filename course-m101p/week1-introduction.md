@@ -15,3 +15,9 @@ Overview of MongoDB characteristics; install of MongoDB and intro to the Mongo s
 Remember that Python dictionaries do not retain the order of their keys, whereas Javascript dictionaries do. For that reason, Pymongo idioms use arrays and tuples in some cases (sorting), rather than dictionaries.
 
 Functions of the [Bottle Python framework](http://bottlepy.org/docs/dev/index.html) that were introduced: starting the listener ``bottle.debug``and ``bottle.run``, URL handlers ``bottle.route/get/post``, templates with arguments ``bottle.template`` (arg list or dict), handling form content ``bottle.post`` and ``bottle.request.forms.get``, using cookies ``bottle.request.get_cookie`` and ``bottle.response.set_cookie`` and redirecting ``bottle.redirect``.
+
+Dans les exercices, ajouter `reloader=True` à l'instruction `bottle.run` dans `blog.py` pour qu'il recharge automatiquement les changements aux scripts (voir [Bottle Tutorial › Development › Autoreloading](http://bottlepy.org/docs/dev/tutorial.html#auto-reloading)):
+
+    …
+    bottle.debug( True)
+    bottle.run( host='localhost', port=8082, reloader=True)
